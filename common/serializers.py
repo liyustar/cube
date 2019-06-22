@@ -5,11 +5,11 @@ from common.models import ParamConfig
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    # paramconfig_set = serializers.HyperlinkedRelatedField(view_name='', many=True, read_only=True)
+    paramconfig_set = serializers.HyperlinkedRelatedField(view_name='paramconfig-detail', many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('url', 'username') #, 'paramconfig_set')
+        fields = ('url', 'username', 'paramconfig_set')
 
 
 class ParamConfigSerializer(serializers.HyperlinkedModelSerializer):
