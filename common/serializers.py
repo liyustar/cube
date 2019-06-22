@@ -13,6 +13,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ParamConfigSerializer(serializers.HyperlinkedModelSerializer):
+    creator = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
+
     class Meta:
         model = ParamConfig
         fields = ('url', 'key', 'value', 'remark', 'creator', 'created')

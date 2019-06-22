@@ -19,3 +19,9 @@ class ParamConfigViewSet(viewsets.ModelViewSet):
     """
     queryset = ParamConfig.objects.all()
     serializer_class = ParamConfigSerializer
+
+    def perform_create(self, serializer):
+        if self.request.user.is_authenticated:
+            serializer.save(creator=self.request.user)
+        else:
+            serializer.save()
