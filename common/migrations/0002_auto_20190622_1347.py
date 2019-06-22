@@ -18,15 +18,15 @@ class Migration(migrations.Migration):
             name='creator',
             field=models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='paramconfig_set', related_query_name='paramconfig', to=settings.AUTH_USER_MODEL),
         ),
+        migrations.AlterField(
+            model_name='paramconfig',
+            name='key',
+            field=models.CharField(max_length=100, unique=True),
+        ),
         migrations.AddField(
             model_name='paramconfig',
             name='id',
             field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
             preserve_default=False,
-        ),
-        migrations.AlterField(
-            model_name='paramconfig',
-            name='key',
-            field=models.CharField(max_length=100, unique=True),
         ),
     ]
