@@ -20,3 +20,6 @@ class ParamConfig(models.Model):
         related_query_name="paramconfig",
     )
     created = models.DateTimeField('config created')
+
+    def __str__(self):
+        return '%s=%s' % (self.key, self.value)
