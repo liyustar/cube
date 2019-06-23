@@ -17,8 +17,14 @@ from django.urls import include
 from django.contrib import admin
 from django.urls import path
 
+from django.conf.urls import url
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Cube API')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('common/', include('common.urls'))
+    path('common/', include('common.urls')),
+    url(r'^swagger/$', schema_view),
 ]
