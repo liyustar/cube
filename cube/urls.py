@@ -26,5 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('common/', include('common.urls')),
-    url(r'^swagger/$', schema_view),
+    path('marketdata/', include('marketdata.urls')),
+    path('swagger/', schema_view),
 ]
